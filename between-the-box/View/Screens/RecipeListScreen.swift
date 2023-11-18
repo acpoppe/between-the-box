@@ -17,6 +17,10 @@ struct RecipeListScreen: View {
         ScreenContainer {
             VStack(spacing: 0) {
                 ScrollView {
+                    Text("Recipe Book")
+                        .font(.custom("SourceSansPro-Regular", size: 36))
+                        .kerning(-0.4)
+                        .padding(.bottom, 44)
                     ForEach(BTBRecipe.allCases) { recipe in
                         self.createRecipeButton(recipe: recipe)
                             .padding(.bottom, 17)
@@ -25,16 +29,8 @@ struct RecipeListScreen: View {
                 }
                 .padding(.bottom, -2)
                 .scrollIndicators(.hidden)
-                .padding(.top, 80)
+                .padding(.top, 36)
                 .padding(.horizontal, 42)
-            }
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("Recipe Book")
-                    .font(.custom("SourceSansPro-Regular", size: 36))
-                    .kerning(-0.4)
             }
         }
         .applyCustomBackButton {

@@ -46,7 +46,7 @@ enum BTBRecipe: Identifiable, CaseIterable {
                 name: "Omelette",
                 description: "A quick staple full of proteins",
                 ingredients: [
-                    BTBIngredient(ingredient: .eggs, amount: 3, unit: "eggs"),
+                    BTBIngredient(ingredient: .eggs, amount: 3, unit: nil),
                     BTBIngredient(ingredient: .onion, amount: 0.5, unit: "onions"),
                     BTBIngredient(ingredient: .garlic, amount: 2, unit: "cloves")
                 ],
@@ -80,7 +80,7 @@ enum BTBRecipe: Identifiable, CaseIterable {
                 description: "Makes you want to book a vacation to Italy",
                 ingredients: [
                     BTBIngredient(ingredient: .spaghettiNoodles, amount: 100, unit: "grams"),
-                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: "onions"),
+                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: nil),
                     BTBIngredient(ingredient: .garlic, amount: 2, unit: "cloves"),
                     BTBIngredient(ingredient: .cannedTomatoes, amount: 125, unit: "ml")
                 ],
@@ -99,7 +99,7 @@ enum BTBRecipe: Identifiable, CaseIterable {
                 description: "A budget classic that you can add nearly everything to",
                 ingredients: [
                     BTBIngredient(ingredient: .rice, amount: 100, unit: "grams"),
-                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: "onions"),
+                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: nil),
                     BTBIngredient(ingredient: .garlic, amount: 2, unit: "cloves"),
                     BTBIngredient(ingredient: .cheese, amount: 50, unit: "grams"),
                     BTBIngredient(ingredient: .cannedTomatoes, amount: 100, unit: "grams")
@@ -118,7 +118,7 @@ enum BTBRecipe: Identifiable, CaseIterable {
                 description: "Basically cooks itself",
                 ingredients: [
                     BTBIngredient(ingredient: .potato, amount: 200, unit: "grams"),
-                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: "onions")
+                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: nil)
                 ],
                 steps: [
                     Step(description: "Cut up potatoes in cubes, cut onions in big pieces."),
@@ -133,7 +133,7 @@ enum BTBRecipe: Identifiable, CaseIterable {
                 description: "Quick topping for wraps or sandwiches",
                 ingredients: [
                     BTBIngredient(ingredient: .tuna, amount: 1, unit: "can"),
-                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: "onions"),
+                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: nil),
                     BTBIngredient(ingredient: .mayonnaise, amount: 100, unit: "ml"),
                     BTBIngredient(ingredient: .soySauce, amount: 1, unit: "tbsp")
                 ],
@@ -149,7 +149,7 @@ enum BTBRecipe: Identifiable, CaseIterable {
                 description: "Nice and wintery soup",
                 ingredients: [
                     BTBIngredient(ingredient: .redLentils, amount: 100, unit: "grams"),
-                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: "onions"),
+                    BTBIngredient(ingredient: .onion, amount: 0.5, unit: nil),
                     BTBIngredient(ingredient: .garlic, amount: 2, unit: "cloves"),
                     BTBIngredient(ingredient: .tomatoPaste, amount: 2, unit: "tbsp")
                 ],

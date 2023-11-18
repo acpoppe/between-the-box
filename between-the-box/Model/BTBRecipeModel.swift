@@ -19,7 +19,7 @@ struct BTBIngredient: Identifiable, Hashable {
     let id = UUID()
     let ingredient: Ingredient
     let amount: CGFloat
-    let unit: String
+    let unit: String?
 }
 
 struct Step: Identifiable, Hashable {
