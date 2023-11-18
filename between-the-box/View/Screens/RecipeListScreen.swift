@@ -20,7 +20,7 @@ struct RecipeListScreen: View {
         }
         List {
             ForEach(placeholderRecipes) { recipe in
-                Text(recipe.name)
+                NavigationLink(recipe.name, value: Screen.recipe(recipe: recipe))
             }
         }.listStyle(.inset)
     }

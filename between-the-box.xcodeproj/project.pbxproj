@@ -22,6 +22,8 @@
 		F72E84DA2B081CE50011EEE2 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D92B081CE50011EEE2 /* RecipeModel.swift */; };
 		F72E84DC2B089F6C0011EEE2 /* ConnectAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */; };
 		F72E84E12B08A3690011EEE2 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84E02B08A3690011EEE2 /* CTAButton.swift */; };
+		F72E84E32B08C0470011EEE2 /* MainContentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84E22B08C0470011EEE2 /* MainContentButton.swift */; };
+		F72E84E52B08C2BF0011EEE2 /* RecipeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84E42B08C2BF0011EEE2 /* RecipeVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		F72E84D92B081CE50011EEE2 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectAccountVM.swift; sourceTree = "<group>"; };
 		F72E84E02B08A3690011EEE2 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
+		F72E84E22B08C0470011EEE2 /* MainContentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentButton.swift; sourceTree = "<group>"; };
+		F72E84E42B08C2BF0011EEE2 /* RecipeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVM.swift; sourceTree = "<group>"; };
 		F76F7B512B0813150058AF03 /* Between the Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Between the Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,7 @@
 				F72E84D52B081A330011EEE2 /* RootVM.swift */,
 				F72E84D72B081B4E0011EEE2 /* AccountVM.swift */,
 				F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */,
+				F72E84E42B08C2BF0011EEE2 /* RecipeVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				F72E84E02B08A3690011EEE2 /* CTAButton.swift */,
+				F72E84E22B08C0470011EEE2 /* MainContentButton.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -224,11 +230,13 @@
 				F72E84C42B0813F20011EEE2 /* RootView.swift in Sources */,
 				F72E84CC2B0818D70011EEE2 /* HomeScreen.swift in Sources */,
 				F72E84CA2B0818C10011EEE2 /* RecipeListScreen.swift in Sources */,
+				F72E84E32B08C0470011EEE2 /* MainContentButton.swift in Sources */,
 				F72E84D22B0819B20011EEE2 /* ChooseLeftoverScreen.swift in Sources */,
 				F72E84D82B081B4E0011EEE2 /* AccountVM.swift in Sources */,
 				F72E84D62B081A330011EEE2 /* RootVM.swift in Sources */,
 				F72E84C32B0813F20011EEE2 /* BetweenTheBoxApp.swift in Sources */,
 				F72E84C82B08145A0011EEE2 /* RecipeScreen.swift in Sources */,
+				F72E84E52B08C2BF0011EEE2 /* RecipeVM.swift in Sources */,
 				F72E84E12B08A3690011EEE2 /* CTAButton.swift in Sources */,
 				F72E84DC2B089F6C0011EEE2 /* ConnectAccountVM.swift in Sources */,
 			);

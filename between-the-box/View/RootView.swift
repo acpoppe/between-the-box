@@ -41,9 +41,10 @@ struct RootView: View {
                     ChooseOrderScreen(
                         rootVM: self.rootVM
                     )
-                case .recipe:
+                case let .recipe(recipe):
                     RecipeScreen(
-                        rootVM: self.rootVM
+                        rootVM: self.rootVM,
+                        recipeVM: RecipeVM(recipe: recipe)
                     )
                 case .recipeList:
                     RecipeListScreen(
@@ -56,11 +57,11 @@ struct RootView: View {
     }
 }
 
-enum Screen {
+enum Screen: Hashable {
     case connectAccount
     case chooseLeftOver
     case chooseOrder
-    case recipe
+    case recipe(recipe: RecipeModel)
     case recipeList
 }
 

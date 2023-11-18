@@ -10,12 +10,21 @@ import SwiftUI
 struct RecipeScreen: View {
     
     @State private(set) var rootVM: RootVM
+    @State private(set) var recipeVM: RecipeVM
     
     var body: some View {
-        Text("Recipe Screen")
+        VStack {
+            Text(self.recipeVM.recipe.name)
+            Spacer()
+        }
     }
 }
 
 #Preview {
-    RecipeScreen(rootVM: RootVM())
+    RecipeScreen(
+        rootVM: RootVM(),
+        recipeVM: RecipeVM(recipe: RecipeModel(
+            name: "Mac & Cheese"
+        ))
+    )
 }

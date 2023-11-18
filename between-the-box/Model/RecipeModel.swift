@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecipeModel: Identifiable {
+struct RecipeModel: Identifiable, Hashable {
     let id: UUID = UUID()
     let name: String
 }
