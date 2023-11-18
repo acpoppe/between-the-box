@@ -20,7 +20,7 @@ struct RootView: View {
                         rootVM: self.rootVM
                     )
                 } else {
-                    RecipeScreen(
+                    RecipeListScreen(
                         rootVM: self.rootVM,
                         accountVM: self.accountVM
                     )
@@ -43,12 +43,12 @@ struct RootView: View {
                     )
                 case .recipe:
                     RecipeScreen(
-                        rootVM: self.rootVM,
-                        accountVM: self.accountVM
+                        rootVM: self.rootVM
                     )
                 case .recipeList:
                     RecipeListScreen(
-                        rootVM: self.rootVM
+                        rootVM: self.rootVM,
+                        accountVM: self.accountVM
                     )
                 }
             }
