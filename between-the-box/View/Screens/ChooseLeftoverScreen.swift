@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChooseLeftoverScreen: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State private(set) var rootVM: RootVM
     @State private(set) var chooseLeftoverVM: ChooseLeftoverVM
     
@@ -29,6 +31,9 @@ struct ChooseLeftoverScreen: View {
                 }
             }
             .padding(.horizontal, 20)
+        }
+        .applyCustomBackButton {
+            self.dismiss()
         }
     }
     

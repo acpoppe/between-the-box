@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RecipeScreen: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State private(set) var rootVM: RootVM
     @State private(set) var recipeVM: RecipeVM
     
@@ -18,6 +20,9 @@ struct RecipeScreen: View {
                 Text(self.recipeVM.recipe.name)
                 Spacer()
             }
+        }
+        .applyCustomBackButton {
+            self.dismiss()
         }
     }
 }

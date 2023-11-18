@@ -56,6 +56,24 @@ struct RootView: View {
     }
 }
 
+extension View {
+    func applyCustomBackButton(touchAction: @escaping () -> Void) -> some View {
+        return self
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        touchAction()
+                    } label: {
+                        Image(systemName: "arrow.backward")
+                            .tint(.black)
+                            .fontWeight(.bold)
+                    }
+                }
+            }
+    }
+}
+
 enum Screen: Hashable {
     case connectAccount
     case chooseLeftOver(ingredients: [IngredientModel])

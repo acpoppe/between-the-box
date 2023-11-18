@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RecipeListScreen: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State private(set) var rootVM: RootVM
     @State private(set) var accountVM: AccountVM
     
@@ -28,6 +30,9 @@ struct RecipeListScreen: View {
                 .listStyle(.inset)
                 .scrollContentBackground(.hidden)
             }
+        }
+        .applyCustomBackButton {
+            self.dismiss()
         }
     }
 }

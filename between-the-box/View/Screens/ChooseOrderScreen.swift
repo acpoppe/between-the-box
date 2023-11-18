@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChooseOrderScreen: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State private(set) var rootVM: RootVM
     @State private(set) var chooseOrderVM = ChooseOrderVM()
     
@@ -35,6 +37,9 @@ struct ChooseOrderScreen: View {
                 }
             }
             .padding(.horizontal, 20)
+        }
+        .applyCustomBackButton {
+            self.dismiss()
         }
     }
 }
