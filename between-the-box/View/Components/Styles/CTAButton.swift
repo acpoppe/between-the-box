@@ -9,23 +9,40 @@ import SwiftUI
 
 struct CTAButton: ButtonStyle {
     
+    let outlined: Bool
+    
+    init(outlined: Bool = false) {
+        self.outlined = outlined
+    }
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundStyle(.white)
+            .font(.custom("SourceSansPro-Regular", size: 16))
+            .kerning(-0.4)
+            .foregroundStyle(self.getTextColor())
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
             .background {
-                if configuration.isPressed {
-                    Color.red
+                if !self.outlined {
+                    configuration.isPressed ? HFColor.buttonPressedBackgroundPrimary : HFColor.primary
                 } else {
-                    Color.green
+                    configuration.isPressed ? HFColor.buttonPressedBackgroundSecondary : Color.clear
+                }
+            }
+            .overlay {
+                if self.outlined {
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(configuration.isPressed ? HFColor.buttonPressedOutlineSecondary : HFColor.primary)
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 8))
-            .contentShape(Capsule())
-            .overlay {
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color(red: 34/255, green: 160/255, blue: 34/255), lineWidth: 2)
-            }
+            .contentShape(RoundedRectangle(cornerRadius: 8))
+    }
+    
+    private func getTextColor() -> Color {
+        if !self.outlined {
+            return .white
+        }
+        return self.outlined ? HFColor.primary : .white
     }
 }

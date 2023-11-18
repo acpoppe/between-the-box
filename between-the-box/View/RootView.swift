@@ -15,16 +15,10 @@ struct RootView: View {
     var body: some View {
         NavigationStack(path: self.$rootVM.path) {
             Group {
-                if self.accountVM.isAccountConnected {
-                    HomeScreen(
-                        rootVM: self.rootVM
-                    )
-                } else {
-                    RecipeListScreen(
-                        rootVM: self.rootVM,
-                        accountVM: self.accountVM
-                    )
-                }
+                HomeScreen(
+                    rootVM: self.rootVM,
+                    accountVM: self.accountVM
+                )
             }
             .navigationDestination(for: Screen.self) { screen in
                 switch screen {

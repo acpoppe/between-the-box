@@ -10,32 +10,53 @@ import SwiftUI
 struct HomeScreen: View {
     
     @State private(set) var rootVM: RootVM
+    @State private(set) var accountVM: AccountVM
     
     var body: some View {
         ScreenContainer {
-            VStack(spacing: 32) {
-                NavigationLink(
-                    "Use your leftovers",
-                    value: Screen.chooseOrder
+            VStack(spacing: 0) {
+                Text(
+                    accountVM.isAccountConnected ?
+                        "What’s between the box today?" :
+                        "Hey, Allison"
                 )
-                .buttonStyle(
-                    MainContentButton(iconName: "fork.knife")
-                )
-                NavigationLink(
-                    "View recipes",
-                    value: Screen.recipeList
-                )
-                .buttonStyle(
-                    MainContentButton(
-                        iconName: "list.bullet.rectangle.portrait"
+                .font(.custom("SourceSansPro-Bold", size: 40))
+                .kerning(-0.4)
+                .multilineTextAlignment(.center)
+                .padding(.top, 140)
+                .padding(.horizontal, 58)
+                    
+                VStack(spacing: 20) {
+                    if accountVM.isAccountConnected {
+                        NavigationLink(
+                            "Use My Leftovers",
+                            value: Screen.chooseOrder
+                        )
+                        .buttonStyle(CTAButton())
+                    } else {
+                        NavigationLink(
+                            "Connect Your Account",
+                            value: Screen.connectAccount
+                        )
+                        .buttonStyle(CTAButton())
+                    }
+                    NavigationLink(
+                        "Show Recipes",
+                        value: Screen.recipeList
                     )
-                )
+                    .buttonStyle(CTAButton(outlined: true))
+                }
+                .padding(.top, 76)
+                .padding(.horizontal, 100)
             }
-            .padding(.horizontal, 20)
+            .frame(maxHeight: .infinity, alignment: .top)
         }
     }
 }
 
 #Preview {
-    HomeScreen(rootVM: RootVM())
+    HomeScreen(
+        rootVM: RootVM(),
+        accountVM: AccountVM()
+    )
 }

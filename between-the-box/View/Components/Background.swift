@@ -16,10 +16,10 @@ struct Background: View {
                 Image("BackgroundBlob")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .opacity(0.7)
             }
         }
         .ignoresSafeArea()
-        .opacity(0.7)
     }
 }
 
