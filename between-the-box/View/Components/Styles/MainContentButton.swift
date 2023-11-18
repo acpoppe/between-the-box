@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct MainContentButton: ButtonStyle {
-    let iconName: String
+    let iconName: String?
+    
+    init(iconName: String? = nil) {
+        self.iconName = iconName
+    }
     
     func makeBody(configuration: Configuration) -> some View {
         HStack {
-            Image(systemName: self.iconName)
+            if let iconName {
+                Image(systemName: iconName)
+            }
             VStack {
                 configuration.label
             }

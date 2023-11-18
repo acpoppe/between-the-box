@@ -13,23 +13,23 @@ struct RecipeListScreen: View {
     @State private(set) var accountVM: AccountVM
     
     var body: some View {
-        if !self.accountVM.isAccountConnected {
-            NavigationLink(value: Screen.connectAccount) {
-                Text("Connect your account")
+        VStack {
+            if !self.accountVM.isAccountConnected {
+                NavigationLink(value: Screen.connectAccount) {
+                    Text("Connect your account")
+                }
             }
+            List {
+                ForEach(self.rootVM.placeholderRecipes) { recipe in
+                    NavigationLink(recipe.name, value: Screen.recipe(recipe: recipe))
+                }
+            }
+            .listStyle(.inset)
+            .scrollContentBackground(.hidden)
         }
-        List {
-            ForEach(placeholderRecipes) { recipe in
-                NavigationLink(recipe.name, value: Screen.recipe(recipe: recipe))
-            }
-        }.listStyle(.inset)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Background())
     }
-    
-    private let placeholderRecipes: [RecipeModel] = [
-        RecipeModel(name: "Chicken"),
-        RecipeModel(name: "Fish"),
-        RecipeModel(name: "Beef")
-    ]
 }
 
 #Preview {

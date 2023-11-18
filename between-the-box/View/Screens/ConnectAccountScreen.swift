@@ -14,47 +14,51 @@ struct ConnectAccountScreen: View {
     @State private var connectAccountVM = ConnectAccountVM()
     
     var body: some View {
-        VStack(spacing: 16) {
-            TextField(text: self.$connectAccountVM.email) {
-                Text("Email")
-            }
-            .padding(6)
-            .overlay {
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(.gray)
-            }
-            .textInputAutocapitalization(.never)
-            
-            SecureField(text: self.$connectAccountVM.password) {
-                Text("Password")
-            }
-            .padding(6)
-            .overlay {
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(.gray)
-            }
-            
-            if !self.connectAccountVM.isLoggingIn {
-                Button {
-                    if self.connectAccountVM.email == "hello@fresh.com" {
-                        self.connectAccountVM.isLoggingIn = true
-                        Task {
-                            try await Task.sleep(for: .seconds(0.5))
-                            self.connectAccountVM.isLoggingIn = false
-                            self.accountVM.isAccountConnected = true
-                            self.rootVM.path = []
-                        }
-                    }
-                } label: {
-                    Text("Log in")
+        Group {
+            VStack(spacing: 16) {
+                TextField(text: self.$connectAccountVM.email) {
+                    Text("Email")
                 }
-                .frame(maxWidth: .infinity)
-                .buttonStyle(CTAButton())
-            } else {
-                ProgressView()
+                .padding(6)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(.gray)
+                }
+                .textInputAutocapitalization(.never)
+                
+                SecureField(text: self.$connectAccountVM.password) {
+                    Text("Password")
+                }
+                .padding(6)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(.gray)
+                }
+                
+                if !self.connectAccountVM.isLoggingIn {
+                    Button {
+                        if self.connectAccountVM.email == "hello@fresh.com" {
+                            self.connectAccountVM.isLoggingIn = true
+                            Task {
+                                try await Task.sleep(for: .seconds(0.5))
+                                self.connectAccountVM.isLoggingIn = false
+                                self.accountVM.isAccountConnected = true
+                                self.rootVM.path = []
+                            }
+                        }
+                    } label: {
+                        Text("Log in")
+                    }
+                    .frame(maxWidth: .infinity)
+                    .buttonStyle(CTAButton())
+                } else {
+                    ProgressView()
+                }
             }
+            .padding(.horizontal, 20)
         }
-        .padding(.horizontal, 20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Background())
     }
 }
 

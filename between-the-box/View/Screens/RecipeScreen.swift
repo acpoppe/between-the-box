@@ -17,6 +17,8 @@ struct RecipeScreen: View {
             Text(self.recipeVM.recipe.name)
             Spacer()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Background())
     }
 }
 
@@ -24,7 +26,8 @@ struct RecipeScreen: View {
     RecipeScreen(
         rootVM: RootVM(),
         recipeVM: RecipeVM(recipe: RecipeModel(
-            name: "Mac & Cheese"
+            name: "Mac & Cheese",
+            ingredients: []
         ))
     )
 }
