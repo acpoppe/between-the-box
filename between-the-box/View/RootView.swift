@@ -12,6 +12,10 @@ struct RootView: View {
     @State private var rootVM = RootVM()
     @State private var accountVM = AccountVM()
     
+    init() {
+        UINavigationBar.setAnimationsEnabled(false)
+    }
+    
     var body: some View {
         NavigationStack(path: self.$rootVM.path) {
             Group {

@@ -17,8 +17,8 @@ struct HomeScreen: View {
             VStack(spacing: 0) {
                 Text(
                     accountVM.isAccountConnected ?
-                        "What’s between the box today?" :
-                        "Hey, Allison"
+                        "Hey, Allison" :
+                        "What’s between the box today?"
                 )
                 .font(.custom("SourceSansPro-Bold", size: 40))
                 .kerning(-0.4)
