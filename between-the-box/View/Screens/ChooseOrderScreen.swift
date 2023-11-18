@@ -16,31 +16,43 @@ struct ChooseOrderScreen: View {
     
     var body: some View {
         ScreenContainer {
-            VStack(spacing: 30) {
-                Text("Which meal would you like to use leftovers from?")
-                    .font(.system(size: 24, weight: .bold))
+            VStack(spacing: 0) {
+                Text("What leftovers do you want to use?")
+                    .font(.custom(
+                        "SourceSansPro-Regular",
+                        size: 36
+                    ))
                     .multilineTextAlignment(.center)
-                ForEach(self.chooseOrderVM.placeholderOrders) { order in
-                    VStack {
-                        NavigationLink(
-                            order.recipe.name,
-                            value: Screen.chooseLeftOver(ingredients: order.recipe.ingredients)
-                        )
-                        .buttonStyle(MainContentButton())
-                        HStack {
-                            Spacer()
-                            Text("Delivered: " + order.date.formatted(date: .abbreviated, time: .omitted))
-                                .foregroundStyle(Color(red: 120/255, green: 120/255, blue: 120/255))
-                                .font(.system(size: 14))
-                        }
-                    }
-                }
+                    .padding(.top, 40)
+                self.createLeftoverSection(orders: self.chooseOrderVM.lastWeekOrders, sectionTitle: "Last Week's Orders")
+                self.createLeftoverSection(orders: self.chooseOrderVM.thisWeekOrders, sectionTitle: "This Week's Orders")
+                Spacer()
             }
             .padding(.horizontal, 20)
         }
         .applyCustomBackButton {
             self.dismiss()
         }
+    }
+    
+    @ViewBuilder
+    private func createLeftoverSection(orders: [OrderModel], sectionTitle: String) -> some View {
+        VStack(spacing: 0) {
+            Text(sectionTitle)
+                .font(.custom("SourceSansPro-Semibold", size: 24))
+            ForEach(orders) { order in
+                VStack {
+                    NavigationLink(
+                        order.recipe.name,
+                        value: Screen.chooseLeftOver(ingredients: order.recipe.ingredients)
+                    )
+                    .buttonStyle(CTAButton(outlined: true))
+                    .padding(.horizontal, 80)
+                    .padding(.top, 18)
+                }
+            }
+        }
+        .padding(.top, 55)
     }
 }
 

@@ -22,7 +22,7 @@ struct ConnectAccountScreen: View {
                     .font(.custom("SourceSansPro-Bold", size: 40))
                     .kerning(-0.4)
                     .multilineTextAlignment(.center)
-                    .padding(.top, 140)
+                    .padding(.top, 40)
                     .padding(.bottom, 70)
                 TextField(text: self.$connectAccountVM.email) {
                     Text("Email")

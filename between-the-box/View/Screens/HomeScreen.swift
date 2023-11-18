@@ -23,7 +23,7 @@ struct HomeScreen: View {
                 .font(.custom("SourceSansPro-Bold", size: 40))
                 .kerning(-0.4)
                 .multilineTextAlignment(.center)
-                .padding(.top, 140)
+                .padding(.top, 40)
                 .padding(.horizontal, 58)
                     
                 VStack(spacing: 20) {

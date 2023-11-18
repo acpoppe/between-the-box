@@ -8,48 +8,54 @@
 import SwiftUI
 
 @Observable class ChooseOrderVM {
-    let placeholderOrders: [OrderModel] = [
+    let lastWeekOrders: [OrderModel] = [
         OrderModel(
-            date: Date().advanced(by: -(60*60*96)),
             recipe: RecipeModel(
-                name: "Tacos",
+                name: "Poblano Beef Tacos",
                 description: "A delicious seasoning blend combined with fresh vegetables",
                 ingredients: [
                     IngredientModel(
-                        name: "Beef",
+                        name: "Minced Pork",
                         amount: 450,
                         unit: "grams"
                     ),
                     IngredientModel(
-                        name: "Lettuce",
-                        amount: 200,
+                        name: "Poblano Peppers",
+                        amount: 100,
                         unit: "grams"
                     ),
                     IngredientModel(
-                        name: "Tomatoes",
-                        amount: 2,
+                        name: "Flour Tortillas",
+                        amount: 4,
                         unit: nil
                     ),
                     IngredientModel(
-                        name: "Tortillas",
-                        amount: 4,
+                        name: "Roma Tomatoes",
+                        amount: 2,
                         unit: nil
                     )
                 ]
             )
         ),
         OrderModel(
-            date: Date().advanced(by: -(60*60*96)),
             recipe: RecipeModel(
-                name: "Chicken Squash Curry",
+                name: "Chicken-Squash Curry",
+                description: "Some description",
+                ingredients: []
+            )
+        )
+    ]
+    let thisWeekOrders: [OrderModel] = [
+        OrderModel(
+            recipe: RecipeModel(
+                name: "Spinach Lasagna",
                 description: "Some description",
                 ingredients: []
             )
         ),
         OrderModel(
-            date: Date().advanced(by: -(60*60*48)),
             recipe: RecipeModel(
-                name: "Lasagna",
+                name: "Creamy Butter Chicken",
                 description: "Some description",
                 ingredients: []
             )
