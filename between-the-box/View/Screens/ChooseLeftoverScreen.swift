@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ChooseLeftoverScreen: View {
+    
+    @State private(set) var rootVM: RootVM
+    
     var body: some View {
         Text("Choose Leftover Screen")
     }
 }
 
 #Preview {
-    ChooseLeftoverScreen()
+    ChooseLeftoverScreen(rootVM: RootVM())
 }

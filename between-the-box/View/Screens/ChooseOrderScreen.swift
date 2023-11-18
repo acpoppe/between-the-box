@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ChooseOrderScreen: View {
+    
+    @State private(set) var rootVM: RootVM
+    
     var body: some View {
         Text("Choose Order Screen")
     }
 }
 
 #Preview {
-    ChooseOrderScreen()
+    ChooseOrderScreen(rootVM: RootVM())
 }

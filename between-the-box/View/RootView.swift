@@ -16,7 +16,9 @@ struct RootView: View {
         NavigationStack(path: self.$rootVM.path) {
             Group {
                 if self.accountVM.isAccountConnected {
-                    HomeScreen()
+                    HomeScreen(
+                        rootVM: self.rootVM
+                    )
                 } else {
                     RecipeScreen(
                         rootVM: self.rootVM,
@@ -26,13 +28,26 @@ struct RootView: View {
             }
             .navigationDestination(for: Screen.self) { screen in
                 switch screen {
+                case .connectAccount:
+                    ConnectAccountScreen(
+                        rootVM: self.rootVM,
+                        accountVM: self.accountVM
+                    )
+                case .chooseLeftOver:
+                    ChooseLeftoverScreen(
+                        rootVM: self.rootVM
+                    )
+                case .chooseOrder:
+                    ChooseOrderScreen(
+                        rootVM: self.rootVM
+                    )
                 case .recipe:
                     RecipeScreen(
                         rootVM: self.rootVM,
                         accountVM: self.accountVM
                     )
-                case .connectAccount:
-                    ConnectAccountScreen(
+                case .recipeList:
+                    RecipeListScreen(
                         rootVM: self.rootVM
                     )
                 }
@@ -42,8 +57,11 @@ struct RootView: View {
 }
 
 enum Screen {
-    case recipe
     case connectAccount
+    case chooseLeftOver
+    case chooseOrder
+    case recipe
+    case recipeList
 }
 
 #Preview {

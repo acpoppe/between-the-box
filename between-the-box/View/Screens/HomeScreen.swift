@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    
+    @State private(set) var rootVM: RootVM
+    
     var body: some View {
         Text("Home Screen")
     }
 }
 
 #Preview {
-    HomeScreen()
+    HomeScreen(rootVM: RootVM())
 }

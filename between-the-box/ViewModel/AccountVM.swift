@@ -8,5 +8,5 @@
 import SwiftUI
 
 @Observable class AccountVM {
-    var isAccountConnected = true
+    var isAccountConnected = false
 }

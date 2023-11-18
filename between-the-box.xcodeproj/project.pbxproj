@@ -20,6 +20,8 @@
 		F72E84D62B081A330011EEE2 /* RootVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D52B081A330011EEE2 /* RootVM.swift */; };
 		F72E84D82B081B4E0011EEE2 /* AccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D72B081B4E0011EEE2 /* AccountVM.swift */; };
 		F72E84DA2B081CE50011EEE2 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D92B081CE50011EEE2 /* RecipeModel.swift */; };
+		F72E84DC2B089F6C0011EEE2 /* ConnectAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */; };
+		F72E84E12B08A3690011EEE2 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84E02B08A3690011EEE2 /* CTAButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F72E84D52B081A330011EEE2 /* RootVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVM.swift; sourceTree = "<group>"; };
 		F72E84D72B081B4E0011EEE2 /* AccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVM.swift; sourceTree = "<group>"; };
 		F72E84D92B081CE50011EEE2 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectAccountVM.swift; sourceTree = "<group>"; };
+		F72E84E02B08A3690011EEE2 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		F76F7B512B0813150058AF03 /* Between the Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Between the Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,6 +78,7 @@
 		F72E84C52B0814380011EEE2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F72E84DE2B08A3420011EEE2 /* Components */,
 				F72E84C62B08143F0011EEE2 /* Screens */,
 				F72E84C02B0813F20011EEE2 /* RootView.swift */,
 			);
@@ -106,8 +111,25 @@
 			children = (
 				F72E84D52B081A330011EEE2 /* RootVM.swift */,
 				F72E84D72B081B4E0011EEE2 /* AccountVM.swift */,
+				F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F72E84DE2B08A3420011EEE2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F72E84DF2B08A34B0011EEE2 /* Styles */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F72E84DF2B08A34B0011EEE2 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				F72E84E02B08A3690011EEE2 /* CTAButton.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		F76F7B482B0813150058AF03 = {
@@ -207,6 +229,8 @@
 				F72E84D62B081A330011EEE2 /* RootVM.swift in Sources */,
 				F72E84C32B0813F20011EEE2 /* BetweenTheBoxApp.swift in Sources */,
 				F72E84C82B08145A0011EEE2 /* RecipeScreen.swift in Sources */,
+				F72E84E12B08A3690011EEE2 /* CTAButton.swift in Sources */,
+				F72E84DC2B089F6C0011EEE2 /* ConnectAccountVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
