@@ -12,7 +12,7 @@ struct HomeScreen: View {
     @State private(set) var rootVM: RootVM
     
     var body: some View {
-        Group {
+        ScreenContainer {
             VStack(spacing: 32) {
                 NavigationLink(
                     "Use your leftovers",
@@ -33,8 +33,6 @@ struct HomeScreen: View {
             }
             .padding(.horizontal, 20)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Background())
     }
 }
 

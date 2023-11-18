@@ -13,7 +13,7 @@ struct ChooseOrderScreen: View {
     @State private(set) var chooseOrderVM = ChooseOrderVM()
     
     var body: some View {
-        Group {
+        ScreenContainer {
             VStack(spacing: 30) {
                 Text("Which meal would you like to use leftovers from?")
                     .font(.system(size: 24, weight: .bold))
@@ -36,8 +36,6 @@ struct ChooseOrderScreen: View {
             }
             .padding(.horizontal, 20)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Background())
     }
 }
 

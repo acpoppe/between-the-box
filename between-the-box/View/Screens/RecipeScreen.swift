@@ -13,12 +13,12 @@ struct RecipeScreen: View {
     @State private(set) var recipeVM: RecipeVM
     
     var body: some View {
-        VStack {
-            Text(self.recipeVM.recipe.name)
-            Spacer()
+        ScreenContainer {
+            VStack {
+                Text(self.recipeVM.recipe.name)
+                Spacer()
+            }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Background())
     }
 }
 

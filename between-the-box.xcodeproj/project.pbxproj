@@ -29,6 +29,7 @@
 		F72E84EB2B08D3C10011EEE2 /* ChooseOrderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84EA2B08D3C10011EEE2 /* ChooseOrderVM.swift */; };
 		F72E84ED2B08DB2B0011EEE2 /* ChooseLeftoverVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84EC2B08DB2B0011EEE2 /* ChooseLeftoverVM.swift */; };
 		F72E84EF2B08ED460011EEE2 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84EE2B08ED460011EEE2 /* Background.swift */; };
+		F72E84F12B08EF520011EEE2 /* ScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84F02B08EF520011EEE2 /* ScreenContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		F72E84EA2B08D3C10011EEE2 /* ChooseOrderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOrderVM.swift; sourceTree = "<group>"; };
 		F72E84EC2B08DB2B0011EEE2 /* ChooseLeftoverVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLeftoverVM.swift; sourceTree = "<group>"; };
 		F72E84EE2B08ED460011EEE2 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		F72E84F02B08EF520011EEE2 /* ScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenContainer.swift; sourceTree = "<group>"; };
 		F76F7B512B0813150058AF03 /* Between the Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Between the Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 			children = (
 				F72E84DF2B08A34B0011EEE2 /* Styles */,
 				F72E84EE2B08ED460011EEE2 /* Background.swift */,
+				F72E84F02B08EF520011EEE2 /* ScreenContainer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				F72E84D02B0819A10011EEE2 /* ChooseOrderScreen.swift in Sources */,
 				F72E84C42B0813F20011EEE2 /* RootView.swift in Sources */,
 				F72E84ED2B08DB2B0011EEE2 /* ChooseLeftoverVM.swift in Sources */,
+				F72E84F12B08EF520011EEE2 /* ScreenContainer.swift in Sources */,
 				F72E84CC2B0818D70011EEE2 /* HomeScreen.swift in Sources */,
 				F72E84E92B08D2460011EEE2 /* IngredientModel.swift in Sources */,
 				F72E84EB2B08D3C10011EEE2 /* ChooseOrderVM.swift in Sources */,

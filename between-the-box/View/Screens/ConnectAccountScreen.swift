@@ -14,7 +14,7 @@ struct ConnectAccountScreen: View {
     @State private var connectAccountVM = ConnectAccountVM()
     
     var body: some View {
-        Group {
+        ScreenContainer {
             VStack(spacing: 16) {
                 TextField(text: self.$connectAccountVM.email) {
                     Text("Email")
@@ -57,8 +57,6 @@ struct ConnectAccountScreen: View {
             }
             .padding(.horizontal, 20)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Background())
     }
 }
 

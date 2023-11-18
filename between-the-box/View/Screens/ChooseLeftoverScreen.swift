@@ -13,7 +13,7 @@ struct ChooseLeftoverScreen: View {
     @State private(set) var chooseLeftoverVM: ChooseLeftoverVM
     
     var body: some View {
-        Group {
+        ScreenContainer {
             VStack(spacing: 30) {
                 Text("Which leftover would you like help using?")
                     .font(.system(size: 24, weight: .bold))
@@ -30,8 +30,6 @@ struct ChooseLeftoverScreen: View {
             }
             .padding(.horizontal, 20)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Background())
     }
     
     private func getDestination(ingredient: IngredientModel) -> Screen {
