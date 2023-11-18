@@ -46,10 +46,7 @@ struct RootView: View {
                         recipeVM: RecipeVM(recipe: recipe)
                     )
                 case .recipeList:
-                    RecipeListScreen(
-                        rootVM: self.rootVM,
-                        accountVM: self.accountVM
-                    )
+                    RecipeListScreen(rootVM: self.rootVM)
                 }
             }
         }

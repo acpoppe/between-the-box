@@ -32,6 +32,7 @@ struct RecipeScreen: View {
         rootVM: RootVM(),
         recipeVM: RecipeVM(recipe: RecipeModel(
             name: "Mac & Cheese",
+            description: "Some description",
             ingredients: []
         ))
     )

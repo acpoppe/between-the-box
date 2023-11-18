@@ -13,6 +13,7 @@ import SwiftUI
             date: Date().advanced(by: -(60*60*96)),
             recipe: RecipeModel(
                 name: "Tacos",
+                description: "A delicious seasoning blend combined with fresh vegetables",
                 ingredients: [
                     IngredientModel(
                         name: "Beef",
@@ -41,6 +42,7 @@ import SwiftUI
             date: Date().advanced(by: -(60*60*96)),
             recipe: RecipeModel(
                 name: "Chicken Squash Curry",
+                description: "Some description",
                 ingredients: []
             )
         ),
@@ -48,6 +50,7 @@ import SwiftUI
             date: Date().advanced(by: -(60*60*48)),
             recipe: RecipeModel(
                 name: "Lasagna",
+                description: "Some description",
                 ingredients: []
             )
         )

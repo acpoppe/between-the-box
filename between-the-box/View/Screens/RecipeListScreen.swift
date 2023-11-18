@@ -12,34 +12,63 @@ struct RecipeListScreen: View {
     @Environment(\.dismiss) var dismiss
     
     @State private(set) var rootVM: RootVM
-    @State private(set) var accountVM: AccountVM
     
     var body: some View {
         ScreenContainer {
-            VStack {
-                if !self.accountVM.isAccountConnected {
-                    NavigationLink(value: Screen.connectAccount) {
-                        Text("Connect your account")
-                    }
-                }
-                List {
+            VStack(spacing: 0) {
+                ScrollView {
                     ForEach(self.rootVM.placeholderRecipes) { recipe in
-                        NavigationLink(recipe.name, value: Screen.recipe(recipe: recipe))
+                        self.createRecipeButton(recipe: recipe)
+                            .padding(.bottom, 17)
                     }
+                    .padding(2)
                 }
-                .listStyle(.inset)
-                .scrollContentBackground(.hidden)
+                .padding(.bottom, -2)
+                .scrollIndicators(.hidden)
+                .padding(.top, 80)
+                .padding(.horizontal, 42)
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Recipe Book")
+                    .font(.custom("SourceSansPro-Regular", size: 36))
+                    .kerning(-0.4)
             }
         }
         .applyCustomBackButton {
             self.dismiss()
         }
     }
+    
+    @ViewBuilder
+    private func createRecipeButton(recipe: RecipeModel) -> some View {
+        NavigationLink(value: Screen.recipe(recipe: recipe)) {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(recipe.name)
+                        .tint(.black)
+                        .font(.custom("SourceSansPro-Regular", size: 20))
+                        .multilineTextAlignment(.leading)
+                    Text(recipe.description)
+                        .tint(HFColor.alternativeText)
+                        .font(.custom("SourceSansPro-Regular", size: 14))
+                        .multilineTextAlignment(.leading)
+                }
+                .padding(.horizontal, 10)
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 8)
+            .overlay {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(HFColor.primary)
+            }
+        }
+    }
 }
 
 #Preview {
-    RecipeListScreen(
-        rootVM: RootVM(),
-        accountVM: AccountVM()
-    )
+    RecipeListScreen(rootVM: RootVM())
 }

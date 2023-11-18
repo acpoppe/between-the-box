@@ -10,8 +10,25 @@ import SwiftUI
 @Observable class RootVM {
     var path: [Screen] = []
     let placeholderRecipes = [
-        RecipeModel(name: "Mac & Cheese", ingredients: []),
-        RecipeModel(name: "Spaghetti", ingredients: []),
-        RecipeModel(name: "Side Salad", ingredients: [])
+        RecipeModel(
+            name: "Tacos",
+            description: "A delicious seasoning blend combined with fresh vegetables",
+            ingredients: []
+        ),
+        RecipeModel(
+            name: "Mac & Cheese",
+            description: "Some description",
+            ingredients: []
+        ),
+        RecipeModel(
+            name: "Spaghetti",
+            description: "Some description",
+            ingredients: []
+        ),
+        RecipeModel(
+            name: "Side Salad",
+            description: "Some description",
+            ingredients: []
+        )
     ]
 }

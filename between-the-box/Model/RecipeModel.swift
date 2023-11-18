@@ -10,5 +10,6 @@ import Foundation
 struct RecipeModel: Identifiable, Hashable {
     let id: UUID = UUID()
     let name: String
+    let description: String
     let ingredients: [IngredientModel]
 }
