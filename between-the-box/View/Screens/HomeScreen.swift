@@ -46,7 +46,7 @@ struct HomeScreen: View {
         .background {
             Color.green
         }
-        .border(Color(red: 34/255, green: 139/255, blue: 34/255), width: 2)
+        .border(Color(red: 34/255, green: 160/255, blue: 34/255), width: 2)
     }
 }
 

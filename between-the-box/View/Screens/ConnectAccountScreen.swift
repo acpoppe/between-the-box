@@ -34,17 +34,26 @@ struct ConnectAccountScreen: View {
                     .stroke(.gray)
             }
             
-            Button {
-                if self.connectAccountVM.email == "hello@fresh.com" {
-                    self.accountVM.isAccountConnected = true
-                    self.rootVM.path = []
+            if !self.connectAccountVM.isLoggingIn {
+                Button {
+                    if self.connectAccountVM.email == "hello@fresh.com" {
+                        self.connectAccountVM.isLoggingIn = true
+                        Task {
+                            try await Task.sleep(for: .seconds(0.5))
+                            self.connectAccountVM.isLoggingIn = false
+                            self.accountVM.isAccountConnected = true
+                            self.rootVM.path = []
+                        }
+                    }
+                } label: {
+                    Text("Log in")
                 }
-            } label: {
-                Text("Log in")
+                .frame(maxWidth: .infinity)
+                .buttonStyle(CTAButton())
+            } else {
+                ProgressView()
             }
-            .frame(maxWidth: .infinity)
         }
-        .buttonStyle(CTAButton())
         .padding(.horizontal, 20)
     }
 }

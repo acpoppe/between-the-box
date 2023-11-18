@@ -11,4 +11,5 @@ import SwiftUI
 class ConnectAccountVM {
     var email = ""
     var password = ""
+    var isLoggingIn = false
 }

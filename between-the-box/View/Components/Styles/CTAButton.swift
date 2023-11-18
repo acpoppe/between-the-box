@@ -11,6 +11,7 @@ struct CTAButton: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
             .background {
@@ -22,5 +23,9 @@ struct CTAButton: ButtonStyle {
             }
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .contentShape(Capsule())
+            .overlay {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color(red: 34/255, green: 160/255, blue: 34/255), lineWidth: 2)
+            }
     }
 }
