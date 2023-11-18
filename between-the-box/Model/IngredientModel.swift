@@ -8,7 +8,7 @@
 import Foundation
 
 struct IngredientModel: Identifiable, Hashable {
-    let id: UUID = UUID()
+    let id = UUID()
     let name: String
     let prompt: String
     let modifiableRecipes: [BTBRecipe]

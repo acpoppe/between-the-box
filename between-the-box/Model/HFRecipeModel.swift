@@ -8,7 +8,7 @@
 import Foundation
 
 struct HFRecipeModel: Identifiable, Hashable {
-    let id: UUID = UUID()
+    let id = UUID()
     let name: String
     let ingredients: [Ingredient]
 }

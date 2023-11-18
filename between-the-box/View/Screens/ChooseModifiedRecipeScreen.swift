@@ -47,7 +47,7 @@ struct ChooseModifiedRecipeScreen: View {
     ChooseModifiedRecipeScreen(
         rootVM: RootVM(),
         chooseModifiedRecipeVM: ChooseModifiedRecipeVM(
-            ingredient: .poblanoPeppers
+            ingredient: .poblanoPepper
         )
     )
 }

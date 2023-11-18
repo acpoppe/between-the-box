@@ -8,6 +8,6 @@
 import Foundation
 
 struct OrderModel: Identifiable, Hashable {
-    let id: UUID = UUID()
+    let id = UUID()
     let recipe: HFRecipe
 }

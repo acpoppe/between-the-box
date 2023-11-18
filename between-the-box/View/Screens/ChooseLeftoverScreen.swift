@@ -30,7 +30,7 @@ struct ChooseLeftoverScreen: View {
                         value: Screen.chooseModifiedRecipe(ingredient: ingredient)
                     )
                     .buttonStyle(CTAButton(outlined: true))
-                    .padding(.horizontal, 80)
+                    .padding(.horizontal, 60)
                     .padding(.top, 18)
                 }
                 Spacer()
@@ -47,8 +47,8 @@ struct ChooseLeftoverScreen: View {
     ChooseLeftoverScreen(
         rootVM: RootVM(),
         chooseLeftoverVM: ChooseLeftoverVM(ingredients: [
-            .romaTomatoes,
-            .poblanoPeppers
+            .romaTomato,
+            .poblanoPepper
         ])
     )
 }

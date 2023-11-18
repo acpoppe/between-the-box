@@ -8,7 +8,11 @@
 import Foundation
 
 enum HFRecipe: Identifiable, CaseIterable {
-    case poblanoBeefTacos
+    case porkCarnitasTacos
+    case chickenSquashCurry
+    case creamyDillChicken
+    case onePotVeganRedChili
+    
     
     var id: UUID {
         return UUID()
@@ -16,14 +20,48 @@ enum HFRecipe: Identifiable, CaseIterable {
     
     var model: HFRecipeModel {
         switch self {
-        case .poblanoBeefTacos:
+        case .porkCarnitasTacos:
             return HFRecipeModel(
-                name: "Poblano Beef Tacos",
+                name: "Pork Carnitas Tacos",
                 ingredients: [
-                    .flourTortillas,
-                    .mincedPork,
-                    .poblanoPeppers,
-                    .romaTomatoes
+                    .flourTortilla,
+                    .groundPork,
+                    .poblanoPepper,
+                    .romaTomato,
+                    .monterreyJack
+                ]
+                // Taco filling - finished
+            )
+        case .chickenSquashCurry:
+            return HFRecipeModel(
+                name: "Chicken Squash Curry",
+                ingredients: [
+                    .hokkaidoSquash,
+                    .chickenBreast,
+                    .coconutMilk,
+                    .canOfApricots
+                ]
+            )
+        case .creamyDillChicken:
+            return HFRecipeModel(
+                name: "Creamy Dill Chicken",
+                ingredients: [
+                    .chickenBreast,
+                    .greenBeans,
+                    .potato
+                ]
+                // Cooked Chicken - finished
+                // Cooked veggies - finished
+            )
+        case .onePotVeganRedChili:
+            return HFRecipeModel(
+                name: "One-Pot Vegan Red Chili",
+                ingredients: [
+                    .kidneyBeans,
+                    .jalapeno,
+                    .romaTomato,
+                    .tortillaChips,
+                    .sourCream
                 ]
             )
         }

@@ -9,9 +9,11 @@ import SwiftUI
 
 @Observable class ChooseOrderVM {
     let lastWeekOrders: [OrderModel] = [
-        OrderModel(
-            recipe: .poblanoBeefTacos
-        )
+        OrderModel(recipe: .porkCarnitasTacos),
+        OrderModel(recipe: .chickenSquashCurry)
     ]
-    let thisWeekOrders: [OrderModel] = []
+    let thisWeekOrders: [OrderModel] = [
+        OrderModel(recipe: .creamyDillChicken),
+        OrderModel(recipe: .onePotVeganRedChili)
+    ]
 }
