@@ -19,7 +19,7 @@
 		F72E84D22B0819B20011EEE2 /* ChooseLeftoverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D12B0819B20011EEE2 /* ChooseLeftoverScreen.swift */; };
 		F72E84D62B081A330011EEE2 /* RootVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D52B081A330011EEE2 /* RootVM.swift */; };
 		F72E84D82B081B4E0011EEE2 /* AccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D72B081B4E0011EEE2 /* AccountVM.swift */; };
-		F72E84DA2B081CE50011EEE2 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D92B081CE50011EEE2 /* RecipeModel.swift */; };
+		F72E84DA2B081CE50011EEE2 /* BTBRecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84D92B081CE50011EEE2 /* BTBRecipeModel.swift */; };
 		F72E84DC2B089F6C0011EEE2 /* ConnectAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */; };
 		F72E84E12B08A3690011EEE2 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84E02B08A3690011EEE2 /* CTAButton.swift */; };
 		F72E84E32B08C0470011EEE2 /* MainContentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E84E22B08C0470011EEE2 /* MainContentButton.swift */; };
@@ -43,6 +43,12 @@
 		F72E850B2B08F92F0011EEE2 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F72E84FD2B08F6A40011EEE2 /* SourceSansPro-Semibold.otf */; };
 		F72E850C2B08F92F0011EEE2 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F72E84F82B08F6A30011EEE2 /* SourceSansPro-SemiboldIt.otf */; };
 		F72E850F2B08FAA10011EEE2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72E850E2B08FAA10011EEE2 /* Colors.swift */; };
+		F7F361E52B09418F007CE462 /* ChooseModifiedRecipeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F361E42B09418F007CE462 /* ChooseModifiedRecipeScreen.swift */; };
+		F7F361E72B0942E6007CE462 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F361E62B0942E6007CE462 /* Ingredient.swift */; };
+		F7F361E92B0947B4007CE462 /* ChooseModifiedRecipeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F361E82B0947B4007CE462 /* ChooseModifiedRecipeVM.swift */; };
+		F7F361EB2B0949ED007CE462 /* HFRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F361EA2B0949ED007CE462 /* HFRecipe.swift */; };
+		F7F361ED2B0949F5007CE462 /* BTBRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F361EC2B0949F5007CE462 /* BTBRecipe.swift */; };
+		F7F361F02B094A6E007CE462 /* HFRecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F361EF2B094A6E007CE462 /* HFRecipeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +64,7 @@
 		F72E84D12B0819B20011EEE2 /* ChooseLeftoverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLeftoverScreen.swift; sourceTree = "<group>"; };
 		F72E84D52B081A330011EEE2 /* RootVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVM.swift; sourceTree = "<group>"; };
 		F72E84D72B081B4E0011EEE2 /* AccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVM.swift; sourceTree = "<group>"; };
-		F72E84D92B081CE50011EEE2 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		F72E84D92B081CE50011EEE2 /* BTBRecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTBRecipeModel.swift; sourceTree = "<group>"; };
 		F72E84DB2B089F6C0011EEE2 /* ConnectAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectAccountVM.swift; sourceTree = "<group>"; };
 		F72E84E02B08A3690011EEE2 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 		F72E84E22B08C0470011EEE2 /* MainContentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentButton.swift; sourceTree = "<group>"; };
@@ -84,6 +90,12 @@
 		F72E85002B08F6DC0011EEE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "Between-the-Box/Info.plist"; sourceTree = "<group>"; };
 		F72E850E2B08FAA10011EEE2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F76F7B512B0813150058AF03 /* Between the Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Between the Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F361E42B09418F007CE462 /* ChooseModifiedRecipeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModifiedRecipeScreen.swift; sourceTree = "<group>"; };
+		F7F361E62B0942E6007CE462 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		F7F361E82B0947B4007CE462 /* ChooseModifiedRecipeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModifiedRecipeVM.swift; sourceTree = "<group>"; };
+		F7F361EA2B0949ED007CE462 /* HFRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFRecipe.swift; sourceTree = "<group>"; };
+		F7F361EC2B0949F5007CE462 /* BTBRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTBRecipe.swift; sourceTree = "<group>"; };
+		F7F361EF2B094A6E007CE462 /* HFRecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFRecipeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,7 @@
 		F72E84BB2B0813F20011EEE2 /* between-the-box */ = {
 			isa = PBXGroup;
 			children = (
+				F7F361EE2B094A11007CE462 /* Mocks */,
 				F72E84F22B08F68E0011EEE2 /* Resources */,
 				F72E84D42B0819FF0011EEE2 /* ViewModel */,
 				F72E84D32B0819F20011EEE2 /* Model */,
@@ -138,6 +151,7 @@
 				F72E84CD2B08190C0011EEE2 /* ConnectAccountScreen.swift */,
 				F72E84CF2B0819A10011EEE2 /* ChooseOrderScreen.swift */,
 				F72E84D12B0819B20011EEE2 /* ChooseLeftoverScreen.swift */,
+				F7F361E42B09418F007CE462 /* ChooseModifiedRecipeScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -145,9 +159,10 @@
 		F72E84D32B0819F20011EEE2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F72E84D92B081CE50011EEE2 /* RecipeModel.swift */,
+				F72E84D92B081CE50011EEE2 /* BTBRecipeModel.swift */,
 				F72E84E62B08C6D70011EEE2 /* OrderModel.swift */,
 				F72E84E82B08D2460011EEE2 /* IngredientModel.swift */,
+				F7F361EF2B094A6E007CE462 /* HFRecipeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +176,7 @@
 				F72E84E42B08C2BF0011EEE2 /* RecipeVM.swift */,
 				F72E84EA2B08D3C10011EEE2 /* ChooseOrderVM.swift */,
 				F72E84EC2B08DB2B0011EEE2 /* ChooseLeftoverVM.swift */,
+				F7F361E82B0947B4007CE462 /* ChooseModifiedRecipeVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +251,16 @@
 				F76F7B512B0813150058AF03 /* Between the Box.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F7F361EE2B094A11007CE462 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F7F361E62B0942E6007CE462 /* Ingredient.swift */,
+				F7F361EA2B0949ED007CE462 /* HFRecipe.swift */,
+				F7F361EC2B0949F5007CE462 /* BTBRecipe.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,7 +347,7 @@
 			files = (
 				F72E84CE2B08190C0011EEE2 /* ConnectAccountScreen.swift in Sources */,
 				F72E850F2B08FAA10011EEE2 /* Colors.swift in Sources */,
-				F72E84DA2B081CE50011EEE2 /* RecipeModel.swift in Sources */,
+				F72E84DA2B081CE50011EEE2 /* BTBRecipeModel.swift in Sources */,
 				F72E84D02B0819A10011EEE2 /* ChooseOrderScreen.swift in Sources */,
 				F72E84C42B0813F20011EEE2 /* RootView.swift in Sources */,
 				F72E84ED2B08DB2B0011EEE2 /* ChooseLeftoverVM.swift in Sources */,
@@ -335,12 +361,18 @@
 				F72E84E72B08C6D70011EEE2 /* OrderModel.swift in Sources */,
 				F72E84D82B081B4E0011EEE2 /* AccountVM.swift in Sources */,
 				F72E84D62B081A330011EEE2 /* RootVM.swift in Sources */,
+				F7F361E72B0942E6007CE462 /* Ingredient.swift in Sources */,
 				F72E84C32B0813F20011EEE2 /* BetweenTheBoxApp.swift in Sources */,
 				F72E84C82B08145A0011EEE2 /* RecipeScreen.swift in Sources */,
 				F72E84E52B08C2BF0011EEE2 /* RecipeVM.swift in Sources */,
 				F72E84E12B08A3690011EEE2 /* CTAButton.swift in Sources */,
+				F7F361E92B0947B4007CE462 /* ChooseModifiedRecipeVM.swift in Sources */,
+				F7F361ED2B0949F5007CE462 /* BTBRecipe.swift in Sources */,
 				F72E84DC2B089F6C0011EEE2 /* ConnectAccountVM.swift in Sources */,
+				F7F361EB2B0949ED007CE462 /* HFRecipe.swift in Sources */,
+				F7F361F02B094A6E007CE462 /* HFRecipeModel.swift in Sources */,
 				F72E84EF2B08ED460011EEE2 /* Background.swift in Sources */,
+				F7F361E52B09418F007CE462 /* ChooseModifiedRecipeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

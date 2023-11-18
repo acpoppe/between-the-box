@@ -17,7 +17,7 @@ struct RecipeScreen: View {
     var body: some View {
         ScreenContainer {
             VStack {
-                Text(self.recipeVM.recipe.name)
+                Text(self.recipeVM.recipe.model.name)
                 Spacer()
             }
         }
@@ -30,10 +30,6 @@ struct RecipeScreen: View {
 #Preview {
     RecipeScreen(
         rootVM: RootVM(),
-        recipeVM: RecipeVM(recipe: RecipeModel(
-            name: "Mac & Cheese",
-            description: "Some description",
-            ingredients: []
-        ))
+        recipeVM: RecipeVM(recipe: .macAndCheese)
     )
 }

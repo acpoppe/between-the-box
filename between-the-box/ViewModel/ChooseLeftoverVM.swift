@@ -8,9 +8,9 @@
 import SwiftUI
 
 @Observable class ChooseLeftoverVM {
-    let ingredients: [IngredientModel]
+    let ingredients: [Ingredient]
     
-    init(ingredients: [IngredientModel]) {
+    init(ingredients: [Ingredient]) {
         self.ingredients = ingredients
     }
 }

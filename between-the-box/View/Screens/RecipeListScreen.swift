@@ -17,7 +17,7 @@ struct RecipeListScreen: View {
         ScreenContainer {
             VStack(spacing: 0) {
                 ScrollView {
-                    ForEach(self.rootVM.placeholderRecipes) { recipe in
+                    ForEach(BTBRecipe.allCases) { recipe in
                         self.createRecipeButton(recipe: recipe)
                             .padding(.bottom, 17)
                     }
@@ -43,15 +43,15 @@ struct RecipeListScreen: View {
     }
     
     @ViewBuilder
-    private func createRecipeButton(recipe: RecipeModel) -> some View {
+    private func createRecipeButton(recipe: BTBRecipe) -> some View {
         NavigationLink(value: Screen.recipe(recipe: recipe)) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(recipe.name)
+                    Text(recipe.model.name)
                         .tint(.black)
                         .font(.custom("SourceSansPro-Regular", size: 20))
                         .multilineTextAlignment(.leading)
-                    Text(recipe.description)
+                    Text(recipe.model.description)
                         .tint(HFColor.alternativeText)
                         .font(.custom("SourceSansPro-Regular", size: 14))
                         .multilineTextAlignment(.leading)

@@ -10,6 +10,6 @@ import Foundation
 struct IngredientModel: Identifiable, Hashable {
     let id: UUID = UUID()
     let name: String
-    let amount: Int
-    let unit: String?
+    let prompt: String
+    let modifiableRecipes: [BTBRecipe]
 }

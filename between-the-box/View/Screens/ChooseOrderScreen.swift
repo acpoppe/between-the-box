@@ -43,8 +43,10 @@ struct ChooseOrderScreen: View {
             ForEach(orders) { order in
                 VStack {
                     NavigationLink(
-                        order.recipe.name,
-                        value: Screen.chooseLeftOver(ingredients: order.recipe.ingredients)
+                        order.recipe.model.name,
+                        value: Screen.chooseLeftOver(
+                            ingredients: order.recipe.model.ingredients
+                        )
                     )
                     .buttonStyle(CTAButton(outlined: true))
                     .padding(.horizontal, 80)

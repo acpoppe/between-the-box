@@ -1,33 +1,33 @@
 //
-//  ChooseLeftoverScreen.swift
+//  ChooseModifiedRecipeScreen.swift
 //  Between the Box
 //
-//  Created by Allison Poppe - Work on 17.11.23.
+//  Created by Allison Poppe - Work on 18.11.23.
 //
 
 import SwiftUI
 
-struct ChooseLeftoverScreen: View {
+struct ChooseModifiedRecipeScreen: View {
     
     @Environment(\.dismiss) var dismiss
     
     @State private(set) var rootVM: RootVM
-    @State private(set) var chooseLeftoverVM: ChooseLeftoverVM
+    @State private(set) var chooseModifiedRecipeVM: ChooseModifiedRecipeVM
     
     var body: some View {
         ScreenContainer {
             VStack(spacing: 0) {
-                Text("What leftovers do you want to use?")
+                Text(self.chooseModifiedRecipeVM.ingredient.model.prompt)
                     .font(.custom(
                         "SourceSansPro-Regular",
                         size: 36
                     ))
                     .multilineTextAlignment(.center)
                     .padding(.top, 40)
-                ForEach(self.chooseLeftoverVM.ingredients) { ingredient in
+                ForEach(self.chooseModifiedRecipeVM.ingredient.model.modifiableRecipes) { recipe in
                     NavigationLink(
-                        ingredient.model.name,
-                        value: Screen.chooseModifiedRecipe(ingredient: ingredient)
+                        recipe.model.name,
+                        value: Screen.recipe(recipe: recipe)
                     )
                     .buttonStyle(CTAButton(outlined: true))
                     .padding(.horizontal, 80)
@@ -44,11 +44,10 @@ struct ChooseLeftoverScreen: View {
 }
 
 #Preview {
-    ChooseLeftoverScreen(
+    ChooseModifiedRecipeScreen(
         rootVM: RootVM(),
-        chooseLeftoverVM: ChooseLeftoverVM(ingredients: [
-            .romaTomatoes,
-            .poblanoPeppers
-        ])
+        chooseModifiedRecipeVM: ChooseModifiedRecipeVM(
+            ingredient: .poblanoPeppers
+        )
     )
 }
