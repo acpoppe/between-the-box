@@ -45,7 +45,8 @@ struct ChooseOrderScreen: View {
                     NavigationLink(
                         order.recipe.model.name,
                         value: Screen.chooseLeftOver(
-                            ingredients: order.recipe.model.ingredients
+                            ingredients: order.recipe.model.ingredients,
+                            finishedProducts: order.recipe.model.finishedProducts
                         )
                     )
                     .buttonStyle(CTAButton(outlined: true))

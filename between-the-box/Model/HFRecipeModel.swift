@@ -11,4 +11,5 @@ struct HFRecipeModel: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let ingredients: [Ingredient]
+    let finishedProducts: [Ingredient]
 }

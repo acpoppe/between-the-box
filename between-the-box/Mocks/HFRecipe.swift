@@ -29,8 +29,10 @@ enum HFRecipe: Identifiable, CaseIterable {
                     .poblanoPepper,
                     .romaTomato,
                     .monterreyJack
+                ],
+                finishedProducts: [
+                    .tacoFilling
                 ]
-                // Taco filling - finished
             )
         case .chickenSquashCurry:
             return HFRecipeModel(
@@ -40,7 +42,8 @@ enum HFRecipe: Identifiable, CaseIterable {
                     .chickenBreast,
                     .coconutMilk,
                     .canOfApricots
-                ]
+                ],
+                finishedProducts: []
             )
         case .creamyDillChicken:
             return HFRecipeModel(
@@ -49,9 +52,11 @@ enum HFRecipe: Identifiable, CaseIterable {
                     .chickenBreast,
                     .greenBeans,
                     .potato
+                ],
+                finishedProducts: [
+                    .cookedChicken,
+                    .cookedVeggies
                 ]
-                // Cooked Chicken - finished
-                // Cooked veggies - finished
             )
         case .onePotVeganRedChili:
             return HFRecipeModel(
@@ -62,7 +67,8 @@ enum HFRecipe: Identifiable, CaseIterable {
                     .romaTomato,
                     .tortillaChips,
                     .sourCream
-                ]
+                ],
+                finishedProducts: []
             )
         }
     }

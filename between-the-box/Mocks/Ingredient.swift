@@ -43,31 +43,12 @@ enum Ingredient: Identifiable, CaseIterable {
     case tomatoPaste
     case chiaSeeds
     
-    // taco filling
-    // cooked chicken
-    // cooked veggies
+    case tacoFilling
+    case cookedChicken
+    case cookedVeggies
     
     var id: UUID {
         return UUID()
-    }
-    
-    private func modifyRecipeModel(
-        _ recipe: BTBRecipe,
-        amount: CGFloat,
-        unit: String,
-        step: String,
-        stepIndex: Int
-    ) -> BTBRecipeModel {
-        var ret = recipe.model
-        var ingredients = recipe.model.ingredients
-        var steps = recipe.model.steps
-        let ingredient = BTBIngredient(ingredient: self, amount: amount, unit: unit, isModification: true)
-        let step = Step(description: step, isModification: true)
-        ingredients.append(ingredient)
-        steps.insert(step, at: stepIndex)
-        ret.ingredients = ingredients
-        ret.steps = steps
-        return ret
     }
     
     var model: IngredientModel {
@@ -315,7 +296,6 @@ enum Ingredient: Identifiable, CaseIterable {
                 name: "Tortilla Chips",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: [
-                    .mixedRice,
                     .bakedVeggies,
                     .macAndCheese
                 ]
@@ -482,6 +462,90 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 return recipe.model
             }
+            
+            
+        case .tacoFilling:
+            return IngredientModel(
+                name: "Taco Filling",
+                prompt: "Try one of these great recipes",
+                modifiableRecipes: [
+                    .spaghettiWithTomatoSauce
+                ]
+            ) { recipe in
+                switch recipe {
+                case .spaghettiWithTomatoSauce:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add leftover taco filling to sauce", stepIndex: 4)
+                default:
+                    return recipe.model
+                }
+            }
+        case .cookedChicken:
+            return IngredientModel(
+                name: "Cooked Chicken",
+                prompt: "Try one of these great recipes",
+                modifiableRecipes: [
+                    .omelette,
+                    .spaghettiWithTomatoSauce,
+                    .mixedRice,
+                    .bakedVeggies
+                ]
+            ) { recipe in
+                switch recipe {
+                case .omelette:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked Chicken on top of Omelette", stepIndex: 4)
+                case .spaghettiWithTomatoSauce:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked chicken to sauce", stepIndex: 4)
+                case .mixedRice:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add cooked chicken and stir in", stepIndex: 4)
+                case .bakedVeggies:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "10 minutes before finished, add cooked chicken on top", stepIndex: 4)
+                default:
+                    return recipe.model
+                }
+            }
+        case .cookedVeggies:
+            return IngredientModel(
+                name: "Cooked Veggies",
+                prompt: "Try one of these great recipes",
+                modifiableRecipes: [
+                    .omelette,
+                    .spaghettiWithTomatoSauce,
+                    .mixedRice,
+                    .bakedVeggies
+                ]
+            ) { recipe in
+                switch recipe {
+                case .omelette:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked Veggies on top of Omelette", stepIndex: 4)
+                case .spaghettiWithTomatoSauce:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked veggies to sauce", stepIndex: 4)
+                case .mixedRice:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add cooked veggies and stir in", stepIndex: 4)
+                case .bakedVeggies:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "10 minutes before finished, add cooked veggies on top", stepIndex: 4)
+                default:
+                    return recipe.model
+                }
+            }
         }
+    }
+    
+    private func modifyRecipeModel(
+        _ recipe: BTBRecipe,
+        amount: CGFloat,
+        unit: String,
+        step: String,
+        stepIndex: Int
+    ) -> BTBRecipeModel {
+        var ret = recipe.model
+        var ingredients = recipe.model.ingredients
+        var steps = recipe.model.steps
+        let ingredient = BTBIngredient(ingredient: self, amount: amount, unit: unit, isModification: true)
+        let step = Step(description: step, isModification: true)
+        ingredients.append(ingredient)
+        steps.insert(step, at: stepIndex)
+        ret.ingredients = ingredients
+        ret.steps = steps
+        return ret
     }
 }

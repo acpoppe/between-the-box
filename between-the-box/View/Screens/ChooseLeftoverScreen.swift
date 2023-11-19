@@ -24,6 +24,25 @@ struct ChooseLeftoverScreen: View {
                     ))
                     .multilineTextAlignment(.center)
                     .padding(.top, 40)
+                if !self.chooseLeftoverVM.finishedProducts.isEmpty {
+                    Text("Leftovers")
+                        .font(.custom("SourceSansPro-Semibold", size: 20))
+                        .kerning(-0.4)
+                        .padding(.top, 44)
+                    ForEach(self.chooseLeftoverVM.finishedProducts) { finishedProduct in
+                        NavigationLink(
+                            finishedProduct.model.name,
+                            value: Screen.chooseModifiedRecipe(ingredient: finishedProduct)
+                        )
+                        .buttonStyle(CTAButton(outlined: true))
+                        .padding(.horizontal, 60)
+                        .padding(.top, 18)
+                    }
+                }
+                Text("Raw Ingredients")
+                    .font(.custom("SourceSansPro-Semibold", size: 20))
+                    .kerning(-0.4)
+                    .padding(.top, 44)
                 ForEach(self.chooseLeftoverVM.ingredients) { ingredient in
                     NavigationLink(
                         ingredient.model.name,
@@ -46,9 +65,14 @@ struct ChooseLeftoverScreen: View {
 #Preview {
     ChooseLeftoverScreen(
         rootVM: RootVM(),
-        chooseLeftoverVM: ChooseLeftoverVM(ingredients: [
-            .romaTomato,
-            .poblanoPepper
-        ])
+        chooseLeftoverVM: ChooseLeftoverVM(
+            ingredients: [
+                .romaTomato,
+                .poblanoPepper
+            ],
+            finishedProducts: [
+                .cookedChicken
+            ]
+        )
     )
 }

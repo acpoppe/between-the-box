@@ -31,10 +31,13 @@ struct RootView: View {
                         rootVM: self.rootVM,
                         accountVM: self.accountVM
                     )
-                case let .chooseLeftOver(ingredients):
+                case let .chooseLeftOver(ingredients, finishedProducts):
                     ChooseLeftoverScreen(
                         rootVM: self.rootVM,
-                        chooseLeftoverVM: ChooseLeftoverVM(ingredients: ingredients)
+                        chooseLeftoverVM: ChooseLeftoverVM(
+                            ingredients: ingredients,
+                            finishedProducts: finishedProducts
+                        )
                     )
                 case let .chooseModifiedRecipe(ingredient):
                     ChooseModifiedRecipeScreen(
@@ -78,7 +81,7 @@ extension View {
 
 enum Screen: Hashable {
     case connectAccount
-    case chooseLeftOver(ingredients: [Ingredient])
+    case chooseLeftOver(ingredients: [Ingredient], finishedProducts: [Ingredient])
     case chooseModifiedRecipe(ingredient: Ingredient)
     case chooseOrder
     case recipe(recipe: BTBRecipeModel)
