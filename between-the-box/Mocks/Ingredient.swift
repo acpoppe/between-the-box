@@ -51,6 +51,25 @@ enum Ingredient: Identifiable, CaseIterable {
         return UUID()
     }
     
+    private func modifyRecipeModel(
+        _ recipe: BTBRecipe,
+        amount: CGFloat,
+        unit: String,
+        step: String,
+        stepIndex: Int
+    ) -> BTBRecipeModel {
+        var ret = recipe.model
+        var ingredients = recipe.model.ingredients
+        var steps = recipe.model.steps
+        let ingredient = BTBIngredient(ingredient: self, amount: amount, unit: unit, isModification: true)
+        let step = Step(description: step, isModification: true)
+        ingredients.append(ingredient)
+        steps.insert(step, at: stepIndex)
+        ret.ingredients = ingredients
+        ret.steps = steps
+        return ret
+    }
+    
     var model: IngredientModel {
         switch self {
         case .poblanoPepper:
@@ -62,7 +81,16 @@ enum Ingredient: Identifiable, CaseIterable {
                     .omelette,
                     .mixedRice
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .macAndCheese:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add finely chopped Poblano Pepper to sauce", stepIndex: 4)
+                case .omelette:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add tomato to pan and sauté", stepIndex: 3)
+                default:
+                    return recipe.model
+                }
+            }
         case .groundPork:
             return IngredientModel(
                 name: "Ground Pork",
@@ -71,7 +99,14 @@ enum Ingredient: Identifiable, CaseIterable {
                     .spaghettiWithTomatoSauce,
                     .mixedRice
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .spaghettiWithTomatoSauce:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Ground Pork to Pan and sauté", stepIndex: 1)
+                default:
+                    return recipe.model
+                }
+            }
         case .romaTomato:
             return IngredientModel(
                 name: "Roma Tomatoes",
@@ -80,7 +115,16 @@ enum Ingredient: Identifiable, CaseIterable {
                     .spaghettiWithTomatoSauce,
                     .omelette
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .omelette:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add tomato to pan and sauté", stepIndex: 3)
+                case .spaghettiWithTomatoSauce:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced tomato to pan and fry", stepIndex: 3)
+                default:
+                    return recipe.model
+                }
+            }
         case .monterreyJack:
             return IngredientModel(
                 name: "Monterrey Jack",
@@ -90,7 +134,14 @@ enum Ingredient: Identifiable, CaseIterable {
                     .mixedRice,
                     .omelette
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .spaghettiWithTomatoSauce:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Garnish with Cheese", stepIndex: 6)
+                default:
+                    return recipe.model
+                }
+            }
         case .flourTortilla:
             return IngredientModel(
                 name: "Flour Tortillas",
@@ -99,13 +150,25 @@ enum Ingredient: Identifiable, CaseIterable {
                     .tunaSalad,
                     .mixedRice
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                default:
+                    return recipe.model
+                }
+            }
         case .hokkaidoSquash:
             return IngredientModel(
                 name: "Hokkaido Squash",
                 prompt: "Squash your hunger with these recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                switch recipe {
+                case .lentilSoup:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Squash and sauté together with lentils for a bit", stepIndex: 4)
+                default:
+                    return recipe.model
+                }
+            }
         case .chickenBreast:
             return IngredientModel(
                 name: "Chicken Breast",
@@ -115,7 +178,16 @@ enum Ingredient: Identifiable, CaseIterable {
                     .mixedRice,
                     .macAndCheese
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .spaghettiWithTomatoSauce:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced chicken to pan and sauté", stepIndex: 1)
+                case .mixedRice:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add chicken to pan and sauté", stepIndex: 1)
+                default:
+                    return recipe.model
+                }
+            }
         case .coconutMilk:
             return IngredientModel(
                 name: "Coconut Milk",
@@ -124,7 +196,14 @@ enum Ingredient: Identifiable, CaseIterable {
                     .overnightChiaPudding,
                     .lentilSoup
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .lentilSoup:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Coconut Milk to pot", stepIndex: 5)
+                default:
+                    return recipe.model
+                }
+            }
         case .canOfApricots:
             return IngredientModel(
                 name: "Canned Apricots",
@@ -132,7 +211,12 @@ enum Ingredient: Identifiable, CaseIterable {
                 modifiableRecipes: [
                     .overnightChiaPudding
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                default:
+                    return recipe.model
+                }
+            }
         case .greenBeans:
             return IngredientModel(
                 name: "Green Beans",
@@ -141,7 +225,16 @@ enum Ingredient: Identifiable, CaseIterable {
                     .bakedVeggies,
                     .mixedRice
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .mixedRice:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add green beans and sauté", stepIndex: 2)
+                case .bakedVeggies:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add green beans to oven pan", stepIndex: 2)
+                default:
+                    return recipe.model
+                }
+            }
         case .potato:
             return IngredientModel(
                 name: "Potatoes",
@@ -150,7 +243,16 @@ enum Ingredient: Identifiable, CaseIterable {
                     .mixedRice,
                     .lentilSoup
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .mixedRice:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add potatoes and sauté", stepIndex: 2)
+                case .lentilSoup:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Potatoes and sauté together with lentils for a bit", stepIndex: 2)
+                default:
+                    return recipe.model
+                }
+            }
         case .kidneyBeans:
             return IngredientModel(
                 name: "Kidney Beans",
@@ -160,7 +262,16 @@ enum Ingredient: Identifiable, CaseIterable {
                     .mixedRice,
                     .lentilSoup
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .bakedVeggies:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add kidney beans to oven pan", stepIndex: 2)
+                case .lentilSoup:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add kidney beans to pot", stepIndex: 5)
+                default:
+                    return recipe.model
+                }
+            }
         case .jalapeno:
             return IngredientModel(
                 name: "Jalapeño",
@@ -171,7 +282,20 @@ enum Ingredient: Identifiable, CaseIterable {
                     .mixedRice,
                     .macAndCheese
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .omelette:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Jalapeno to pan and sauté", stepIndex: 3)
+                case .macAndCheese:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add finely chopped Jalapeno to sauce", stepIndex: 4)
+                case .mixedRice:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced Jalapeno to pan and sauté", stepIndex: 2)
+                case .lentilSoup:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced Jalapeno to pan and sauté", stepIndex: 1)
+                default:
+                    return recipe.model
+                }
+            }
         case .dicedTomatoes:
             return IngredientModel(
                 name: "Diced Tomatoes",
@@ -180,7 +304,12 @@ enum Ingredient: Identifiable, CaseIterable {
                     .bakedVeggies,
                     .mixedRice
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                default:
+                    return recipe.model
+                }
+            }
         case .tortillaChips:
             return IngredientModel(
                 name: "Tortilla Chips",
@@ -190,7 +319,16 @@ enum Ingredient: Identifiable, CaseIterable {
                     .bakedVeggies,
                     .macAndCheese
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                case .macAndCheese:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Crush tortilla chips and add on top of Mac 'n' Cheese", stepIndex: 5)
+                case .bakedVeggies:
+                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "10 minutes before finished, add crushed tortilla chips on top", stepIndex: 4)
+                default:
+                    return recipe.model
+                }
+            }
         case .sourCream:
             return IngredientModel(
                 name: "Sour Cream",
@@ -199,110 +337,151 @@ enum Ingredient: Identifiable, CaseIterable {
                     .mixedRice,
                     .lentilSoup
                 ]
-            )
+            ) { recipe in
+                switch recipe {
+                default:
+                    return recipe.model
+                }
+            }
+            
+            
             
         case .eggs:
             return IngredientModel(
                 name: "Eggs",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .macaroniNoodles:
             return IngredientModel(
                 name: "Macaroni Noodles",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .shreddedCheese:
             return IngredientModel(
                 name: "Shredded Cheese",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .butter:
             return IngredientModel(
                 name: "Butter",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .garlic:
             return IngredientModel(
                 name: "Garlic",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .onion:
             return IngredientModel(
                 name: "Onions",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .tuna:
             return IngredientModel(
                 name: "Tuna",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .rice:
             return IngredientModel(
                 name: "Rice",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .spaghettiNoodles:
             return IngredientModel(
                 name: "Spaghetti Noodles",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .milk:
             return IngredientModel(
                 name: "Milk",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .cannedTomatoes:
             return IngredientModel(
                 name: "Canned Tomatoes",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .cheese:
             return IngredientModel(
                 name: "Cheese",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .redLentils:
             return IngredientModel(
                 name: "Red Lentils",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .mayonnaise:
             return IngredientModel(
                 name: "Mayonnaise",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .soySauce:
             return IngredientModel(
                 name: "Soy Sauce",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .tomatoPaste:
             return IngredientModel(
                 name: "Tomato Paste",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         case .chiaSeeds:
             return IngredientModel(
                 name: "Chia Seeds",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: []
-            )
+            ) { recipe in
+                return recipe.model
+            }
         }
     }
 }

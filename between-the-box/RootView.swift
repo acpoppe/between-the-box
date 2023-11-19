@@ -81,7 +81,7 @@ enum Screen: Hashable {
     case chooseLeftOver(ingredients: [Ingredient])
     case chooseModifiedRecipe(ingredient: Ingredient)
     case chooseOrder
-    case recipe(recipe: BTBRecipe)
+    case recipe(recipe: BTBRecipeModel)
     case recipeList
 }
 

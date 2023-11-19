@@ -20,7 +20,7 @@ struct RecipeScreen: View {
         ScreenContainer {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(self.recipeVM.recipe.model.name)
+                    Text(self.recipeVM.recipe.name)
                         .font(.custom("SourceSansPro-Regular", size: 36))
                         .kerning(-0.4)
                     Text("Ingredients")
@@ -28,12 +28,12 @@ struct RecipeScreen: View {
                         .kerning(-0.4)
                         .padding(.top, 44)
                     Grid(horizontalSpacing: 10, verticalSpacing: 10) {
-                        ForEach(0...(recipeVM.recipe.model.ingredients.count / self.columnsPerRow), id: \.self) { rowNumber in
+                        ForEach(0...(recipeVM.recipe.ingredients.count / self.columnsPerRow), id: \.self) { rowNumber in
                             self.row(rowNumber: rowNumber)
                         }
                     }
                     VStack(spacing: 0) {
-                        ForEach(0..<self.recipeVM.recipe.model.steps.count, id: \.self) { stepIndex in
+                        ForEach(0..<self.recipeVM.recipe.steps.count, id: \.self) { stepIndex in
                             self.createStep(at: stepIndex)
                         }
                     }
@@ -55,8 +55,8 @@ struct RecipeScreen: View {
         GridRow {
             ForEach(0..<self.columnsPerRow, id: \.self) { columnNumber in
                 let index = columnNumber + (rowNumber * self.columnsPerRow)
-                if index < self.recipeVM.recipe.model.ingredients.count {
-                    self.createIngredientView(ingredient: recipeVM.recipe.model.ingredients[index])
+                if index < self.recipeVM.recipe.ingredients.count {
+                    self.createIngredientView(ingredient: recipeVM.recipe.ingredients[index])
                         .frame(maxWidth: .infinity, alignment: .leading)
                 } else {
                     Rectangle().hidden()
@@ -103,16 +103,30 @@ struct RecipeScreen: View {
     @ViewBuilder
     private func createStep(at index: Int) -> some View {
         VStack(alignment: .leading) {
-            Text("Step \(index + 1)")
-                .font(.custom("SourceSansPro-Semibold", size: 16))
-                .kerning(-0.4)
-                .padding(.bottom, 2)
-            Text(self.recipeVM.recipe.model.steps[index].description)
+            if self.recipeVM.recipe.steps[index].isModification {
+                Text("Between the Box Step \(index + 1)")
+                    .font(.custom("SourceSansPro-Semibold", size: 16))
+                    .kerning(-0.4)
+                    .padding(.bottom, 2)
+            } else {
+                Text("Step \(index + 1)")
+                    .font(.custom("SourceSansPro-Semibold", size: 16))
+                    .kerning(-0.4)
+                    .padding(.bottom, 2)
+            }
+            Text(self.recipeVM.recipe.steps[index].description)
                 .font(.custom("SourceSansPro-Regular", size: 16))
                 .kerning(-0.4)
         }
         .padding(10)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .background {
+            if self.recipeVM.recipe.steps[index].isModification {
+                HFColor.buttonPressedBackgroundSecondary
+            } else {
+                Color.clear
+            }
+        }
         .overlay {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(HFColor.primary)
@@ -124,6 +138,6 @@ struct RecipeScreen: View {
 #Preview {
     RecipeScreen(
         rootVM: RootVM(),
-        recipeVM: RecipeVM(recipe: .spaghettiWithTomatoSauce)
+        recipeVM: RecipeVM(recipe: BTBRecipe.spaghettiWithTomatoSauce.model)
     )
 }

@@ -40,7 +40,7 @@ struct RecipeListScreen: View {
     
     @ViewBuilder
     private func createRecipeButton(recipe: BTBRecipe) -> some View {
-        NavigationLink(value: Screen.recipe(recipe: recipe)) {
+        NavigationLink(value: Screen.recipe(recipe: recipe.model)) {
             HStack {
                 VStack(alignment: .leading) {
                     Text(recipe.model.name)

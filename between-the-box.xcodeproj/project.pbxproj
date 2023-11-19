@@ -113,10 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				F7F361EE2B094A11007CE462 /* Mocks */,
-				F72E84F22B08F68E0011EEE2 /* Resources */,
-				F72E84D42B0819FF0011EEE2 /* ViewModel */,
 				F72E84D32B0819F20011EEE2 /* Model */,
 				F72E84C52B0814380011EEE2 /* View */,
+				F72E84D42B0819FF0011EEE2 /* ViewModel */,
+				F72E84C02B0813F20011EEE2 /* RootView.swift */,
+				F72E84F22B08F68E0011EEE2 /* Resources */,
 				F72E84BD2B0813F20011EEE2 /* Preview Content */,
 				F72E84BF2B0813F20011EEE2 /* BetweenTheBoxApp.swift */,
 			);
@@ -137,7 +138,6 @@
 				F72E850D2B08FA980011EEE2 /* Themes */,
 				F72E84DE2B08A3420011EEE2 /* Components */,
 				F72E84C62B08143F0011EEE2 /* Screens */,
-				F72E84C02B0813F20011EEE2 /* RootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

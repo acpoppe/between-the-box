@@ -27,7 +27,7 @@ struct ChooseModifiedRecipeScreen: View {
                 ForEach(self.chooseModifiedRecipeVM.ingredient.model.modifiableRecipes) { recipe in
                     NavigationLink(
                         recipe.model.name,
-                        value: Screen.recipe(recipe: recipe)
+                        value: Screen.recipe(recipe: self.chooseModifiedRecipeVM.ingredient.model.modify(recipe))
                     )
                     .buttonStyle(CTAButton(outlined: true))
                     .padding(.horizontal, 80)

@@ -8,9 +8,9 @@
 import SwiftUI
 
 @Observable class RecipeVM {
-    var recipe: BTBRecipe
+    var recipe: BTBRecipeModel
     
-    init(recipe: BTBRecipe) {
+    init(recipe: BTBRecipeModel) {
         self.recipe = recipe
     }
 }
