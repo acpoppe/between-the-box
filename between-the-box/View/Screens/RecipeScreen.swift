@@ -122,9 +122,11 @@ struct RecipeScreen: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background {
             if self.recipeVM.recipe.steps[index].isModification {
-                HFColor.buttonPressedBackgroundSecondary
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(HFColor.buttonPressedBackgroundSecondary)
             } else {
-                Color.clear
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.white)
             }
         }
         .overlay {

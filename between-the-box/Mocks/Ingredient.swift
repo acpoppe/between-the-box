@@ -55,7 +55,7 @@ enum Ingredient: Identifiable, CaseIterable {
         switch self {
         case .poblanoPepper:
             return IngredientModel(
-                name: "Poblano Peppers",
+                name: "Poblano Pepper",
                 prompt: "Spice up these recipes with Poblano Peppers!",
                 modifiableRecipes: [
                     .macAndCheese,
@@ -65,9 +65,9 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .macAndCheese:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add finely chopped Poblano Pepper to sauce", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 1, unit: nil, step: "Add finely chopped Poblano Pepper to sauce", stepIndex: 4)
                 case .omelette:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add tomato to pan and sauté", stepIndex: 3)
+                    return modifyRecipeModel(recipe, amount: 1, unit: nil, step: "Add tomato to pan and sauté", stepIndex: 3)
                 default:
                     return recipe.model
                 }
@@ -90,7 +90,7 @@ enum Ingredient: Identifiable, CaseIterable {
             }
         case .romaTomato:
             return IngredientModel(
-                name: "Roma Tomatoes",
+                name: "Roma Tomato",
                 prompt: "Try one of these great recipes",
                 modifiableRecipes: [
                     .spaghettiWithTomatoSauce,
@@ -99,9 +99,9 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .omelette:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add tomato to pan and sauté", stepIndex: 3)
+                    return modifyRecipeModel(recipe, amount: 0.5, unit: nil, step: "Add tomato to pan and sauté", stepIndex: 3)
                 case .spaghettiWithTomatoSauce:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced tomato to pan and fry", stepIndex: 3)
+                    return modifyRecipeModel(recipe, amount: 0.5, unit: nil, step: "Add diced tomato to pan and fry", stepIndex: 3)
                 default:
                     return recipe.model
                 }
@@ -118,7 +118,7 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .spaghettiWithTomatoSauce:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Garnish with Cheese", stepIndex: 6)
+                    return modifyRecipeModel(recipe, amount: 25, unit: "grams", step: "Garnish with Cheese", stepIndex: 6)
                 default:
                     return recipe.model
                 }
@@ -145,7 +145,7 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .lentilSoup:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Squash and sauté together with lentils for a bit", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 0.5, unit: nil, step: "Add Squash and sauté together with lentils for a bit", stepIndex: 4)
                 default:
                     return recipe.model
                 }
@@ -162,7 +162,7 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .spaghettiWithTomatoSauce:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced chicken to pan and sauté", stepIndex: 1)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add diced chicken to pan and sauté", stepIndex: 1)
                 case .mixedRice:
                     return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add chicken to pan and sauté", stepIndex: 1)
                 default:
@@ -180,7 +180,7 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .lentilSoup:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Coconut Milk to pot", stepIndex: 5)
+                    return modifyRecipeModel(recipe, amount: 200, unit: "ml", step: "Add Coconut Milk to pot", stepIndex: 5)
                 default:
                     return recipe.model
                 }
@@ -209,7 +209,7 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .mixedRice:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add green beans and sauté", stepIndex: 2)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add green beans and sauté", stepIndex: 2)
                 case .bakedVeggies:
                     return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add green beans to oven pan", stepIndex: 2)
                 default:
@@ -266,13 +266,13 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .omelette:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Jalapeno to pan and sauté", stepIndex: 3)
+                    return modifyRecipeModel(recipe, amount: 1, unit: nil, step: "Add Jalapeno to pan and sauté", stepIndex: 3)
                 case .macAndCheese:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add finely chopped Jalapeno to sauce", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 1, unit: nil, step: "Add finely chopped Jalapeno to sauce", stepIndex: 4)
                 case .mixedRice:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced Jalapeno to pan and sauté", stepIndex: 2)
+                    return modifyRecipeModel(recipe, amount: 1, unit: nil, step: "Add diced Jalapeno to pan and sauté", stepIndex: 2)
                 case .lentilSoup:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add diced Jalapeno to pan and sauté", stepIndex: 1)
+                    return modifyRecipeModel(recipe, amount: 1, unit: nil, step: "Add diced Jalapeno to pan and sauté", stepIndex: 1)
                 default:
                     return recipe.model
                 }
@@ -302,9 +302,9 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .macAndCheese:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Crush tortilla chips and add on top of Mac 'n' Cheese", stepIndex: 5)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Crush tortilla chips and add on top of Mac 'n' Cheese", stepIndex: 5)
                 case .bakedVeggies:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "10 minutes before finished, add crushed tortilla chips on top", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "10 minutes before finished, add crushed tortilla chips on top", stepIndex: 4)
                 default:
                     return recipe.model
                 }
@@ -492,13 +492,13 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .omelette:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked Chicken on top of Omelette", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add Cooked Chicken on top of Omelette", stepIndex: 4)
                 case .spaghettiWithTomatoSauce:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked chicken to sauce", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add Cooked chicken to sauce", stepIndex: 4)
                 case .mixedRice:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add cooked chicken and stir in", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add cooked chicken and stir in", stepIndex: 4)
                 case .bakedVeggies:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "10 minutes before finished, add cooked chicken on top", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "10 minutes before finished, add cooked chicken on top", stepIndex: 4)
                 default:
                     return recipe.model
                 }
@@ -516,11 +516,11 @@ enum Ingredient: Identifiable, CaseIterable {
             ) { recipe in
                 switch recipe {
                 case .omelette:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked Veggies on top of Omelette", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add Cooked Veggies on top of Omelette", stepIndex: 4)
                 case .spaghettiWithTomatoSauce:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add Cooked veggies to sauce", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add Cooked veggies to sauce", stepIndex: 4)
                 case .mixedRice:
-                    return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "Add cooked veggies and stir in", stepIndex: 4)
+                    return modifyRecipeModel(recipe, amount: 50, unit: "grams", step: "Add cooked veggies and stir in", stepIndex: 4)
                 case .bakedVeggies:
                     return modifyRecipeModel(recipe, amount: 100, unit: "grams", step: "10 minutes before finished, add cooked veggies on top", stepIndex: 4)
                 default:
@@ -533,7 +533,7 @@ enum Ingredient: Identifiable, CaseIterable {
     private func modifyRecipeModel(
         _ recipe: BTBRecipe,
         amount: CGFloat,
-        unit: String,
+        unit: String?,
         step: String,
         stepIndex: Int
     ) -> BTBRecipeModel {
